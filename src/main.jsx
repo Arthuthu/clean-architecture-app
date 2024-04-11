@@ -1,29 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import './site.css'
+import UserDetail from './Components/Users/UserDetail'
+import Layout from './Components/Layout'
 
 function App() {
   return (
-    <>
-      <div>Hello world</div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path='/' element={<Home />}/>
+          <Route path='/user/:id' element={<UserDetail />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   ) 
 }
 
-function About() {
+function Home() {
   return(
     <>
-      <div>About page</div>
+      <div>This is the main page content</div>
     </>
   )
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<App />}/>
-      <Route path='/about' element={<About />} />
-    </Routes>
-  </BrowserRouter>
-)
+ReactDOM.createRoot(document.getElementById('root'))
+.render(<App/>)
