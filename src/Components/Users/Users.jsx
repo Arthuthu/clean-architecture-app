@@ -1,6 +1,7 @@
-import { Suspense } from 'react'
+import { Suspense } from 'react';
 import GetAllUsers from '../../Services/UserService';
 import { Await, useLoaderData } from 'react-router-dom';
+import './users.css';
 
 export async function loader(){
   const users = GetAllUsers();
@@ -13,13 +14,18 @@ export default function Users(){
   return(
     <>
       <div className='users-title'>Users</div>
-      <ul>
       {userList.map(user => (
-          <li key={user.id}>
-          <strong>Name:</strong> {user.name}, <strong>Email:</strong> {user.email}
-          </li>
-      ))}
-      </ul>
+        <div key={user.id} className='users-list'>
+          <div className='users-list-row'>
+            <div className='users-list-label'>Nome</div>
+            <div className='user-name'>{user.name}</div>
+          </div>
+          <div className='users-list-row'>
+            <div className='users-list-label'>Email</div>
+            <div className='user-email'>{user.email}</div>
+          </div>
+        </div>
+        ))}
     </>
   )
 }
