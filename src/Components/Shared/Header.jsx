@@ -1,5 +1,5 @@
-import '../site.css'
-import { NavLink } from 'react-router-dom'
+import '../../site.css';
+import { NavLink } from 'react-router-dom';
 
 export default function Header() {
     return(

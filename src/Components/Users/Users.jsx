@@ -1,9 +1,25 @@
-import React from "react";
+import { Suspense } from 'react'
+import GetAllUsers from '../../Services/UserService';
+import { Await, useLoaderData } from 'react-router-dom';
+
+export async function loader(){
+  const users = GetAllUsers();
+  return users;
+}
 
 export default function Users(){
-    return(
-        <>
-            <div>This is the user page</div>
-        </>
-    )
+  const userList = useLoaderData();
+
+  return(
+    <>
+      <div>List of Users</div>
+      <ul>
+      {userList.map(user => (
+          <li key={user.id}>
+          <strong>Name:</strong> {user.name}, <strong>Email:</strong> {user.email}
+          </li>
+      ))}
+      </ul>
+    </>
+  )
 }
