@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './site.css'
 import UserDetail from './Components/Users/UserDetail'
 import Layout from './Components/Layout'
 import Users from './Components/Users/Users'
+import GetAllUsers from './Services/UserService'
 
 function App() {
   return (
@@ -21,9 +22,31 @@ function App() {
 }
 
 function Home() {
+  const [userList, setUserList] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+        try {
+            const users = await GetAllUsers();
+            setUserList(users);
+            console.log(users);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    fetchData();
+  }, []);
+
   return(
     <>
-      <div>This is the main page content</div>
+      <div>List of Users</div>
+      <ul>
+        {userList.map(user => (
+          <li key={user.id}>
+            <strong>Name:</strong> {user.name}, <strong>Email:</strong> {user.email}
+          </li>
+        ))}
+      </ul>
     </>
   )
 }
