@@ -5,7 +5,7 @@ export default function Footer(){
         <>
             <footer>
                 <div className="footer-title">
-                    Project made by Arthur Geromello
+                    Projeto criado por Arthur Geromello
                 </div>
                 <div className='footer-links'>
                     <Link to="https://github.com/Arthuthu">Github</Link>

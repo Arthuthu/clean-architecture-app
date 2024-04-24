@@ -12,7 +12,7 @@ export default function Users(){
 
   return(
     <>
-      <div>List of Users</div>
+      <div className='users-title'>Users</div>
       <ul>
       {userList.map(user => (
           <li key={user.id}>
