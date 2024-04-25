@@ -1,6 +1,10 @@
 import { CreateUserService } from "../../Services/UserService"
 import { Form } from 'react-router-dom'
 
+export async function action() {
+    console.log('actio log');
+}
+
 export default function CreateUser() {
     return(
         <>

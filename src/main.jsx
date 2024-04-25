@@ -7,6 +7,7 @@ import Users, { loader as usersLoader } from './Components/Users/Users'
 import Home from './Components/Home'
 import Error from './Components/Shared/Error'
 import CreateUser from './Components/Users/CreateUser'
+import { action as createUserAction } from './Components/Users/CreateUser'
 
 import './site.css'
 
@@ -15,7 +16,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route index element={<Home />} errorElement={<Error />} />
     <Route path='/user/:id' element={<UserDetail />} errorElement={<Error />} />
     <Route path='/users' element={<Users />} loader={ usersLoader } errorElement={<Error />} >
-      <Route path='/users/create' element={<CreateUser />} errorElement={<Error />} />
+      <Route path='/users/create' element={<CreateUser />} action={ createUserAction } errorElement={<Error />} />
     </Route>
   </Route>
 ))
