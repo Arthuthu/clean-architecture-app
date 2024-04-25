@@ -1,10 +1,11 @@
 import { Suspense } from 'react';
-import GetAllUsers from '../../Services/UserService';
-import { Await, useLoaderData } from 'react-router-dom';
+import GetAllUsersService from '../../Services/UserService';
+import { Await, useLoaderData, Link } from 'react-router-dom';
 import './users.css';
 
 export async function loader(){
-  const users = GetAllUsers();
+  //Verificar se usuario esta logado
+  const users = await GetAllUsersService();
   return users;
 }
 
@@ -14,6 +15,9 @@ export default function Users(){
   return(
     <>
       <div className='users-title'>Users</div>
+      <div className='button-div'>
+        <Link className='create-user-button' to="./create">Criar</Link>
+      </div>
       {userList.map(user => (
         <div key={user.id} className='users-list'>
           <div className='users-list-row'>

@@ -2,10 +2,10 @@ import axios from 'axios';
 
 const cleanArchitectureUrl = 'https://localhost:7115';
 const usersEndpoint = 'v1/user'
-const token ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFydEBnbWFpbC5jb20iLCJtZXVUb2tlbiI6InRva2VuIiwianRpIjoiZjYzYTdlYzMtZjA5My00ZWYxLTk1N2ItNWU1MDkxNWQ2ZjQ3IiwiZXhwIjoxNzE0MDcxNTU4LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6MzAwMCJ9.46fs5aR50klYuCzKLn-QzFPL4WtfWrQ694mNejunV_E'
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFydEBnbWFpbC5jb20iLCJtZXVUb2tlbiI6InRva2VuIiwianRpIjoiNzdkNWY2NjktM2Y5NS00ZWM0LTgwODItMjdhZTVlNzFhZTdlIiwiZXhwIjoxNzE0MTYxOTYxLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6MzAwMCJ9.1cVBm-9kQSuStw8SnssHSGBpKfq-m8Ro0dTaBxGggEo';
 const headers = { 'Authorization': `Bearer ${token}` }; 
 
-export default async function GetAllUsers() {
+export default async function GetAllUsersService() {
     try {
         const response = await axios.get(`${cleanArchitectureUrl}/${usersEndpoint}/get`, { headers });
         return response.data;
@@ -15,7 +15,7 @@ export default async function GetAllUsers() {
     }
 }
 
-export async function GetUserById(id){
+export async function GetUserByIdService(id){
     try {
         const response = await axios.get(`${cleanArchitectureUrl}/${usersEndpoint}/get/${id}`, { headers });
         return response.data;
@@ -26,7 +26,7 @@ export async function GetUserById(id){
     }
 }
 
-export async function CreateUser(user){
+export async function CreateUserService(user){
     const hardCodedUser = {
         name: 'HardCoded',
         email: 'hardcoded@gmail.com',
@@ -43,7 +43,7 @@ export async function CreateUser(user){
     }
 }
 
-export async function DeleteUser(id){
+export async function DeleteUserService(id){
     try {
         const response = await axios.delete(`${cleanArchitectureUrl}/${usersEndpoint}/delete/${id}`, { headers })
         return response.data;
@@ -54,7 +54,7 @@ export async function DeleteUser(id){
     }
 }
 
-export async function UpdateUser(userId, user) {
+export async function UpdateUserService(userId, user) {
     try {
         const response = await axios.put(`${cleanArchitectureUrl}/${usersEndpoint}/update/${userId}, ${ user }. ${ headers }`);
         return response.data;

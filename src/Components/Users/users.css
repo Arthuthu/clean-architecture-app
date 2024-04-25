@@ -1,3 +1,5 @@
+/* All Users */
+
 .users-title {
     padding: 30px;
     font-size: 30px;
@@ -11,6 +13,20 @@
     display: flex;
     justify-content: space-evenly;
     margin: 20px;
+}
+
+.button-div {
+    margin: 20px;
+    text-align: center;
+}
+
+.create-user-button {
+    padding: 20px 30px;
+    background-color: rgb(230, 115, 44);
+    color: #FFF;
+    font-size: 23px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .users-list-row {
@@ -32,4 +48,18 @@
 
 .user-email {
     font-size: 20px;
+}
+
+/* Create user */
+.create-user-form-button-div {
+    text-align: center;
+}
+
+.create-user-form-button {
+    margin: 10px;
+    padding: 20px;
+    background-color: rgb(230, 115, 44);
+    color: #FFF;
+    font-size: 23px;
+    font-weight: bold;
 }
