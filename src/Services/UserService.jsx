@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const cleanArchitectureUrl = 'https://localhost:7115';
 const usersEndpoint = 'v1/user'
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFydEBnbWFpbC5jb20iLCJtZXVUb2tlbiI6InRva2VuIiwianRpIjoiNzdkNWY2NjktM2Y5NS00ZWM0LTgwODItMjdhZTVlNzFhZTdlIiwiZXhwIjoxNzE0MTYxOTYxLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6MzAwMCJ9.1cVBm-9kQSuStw8SnssHSGBpKfq-m8Ro0dTaBxGggEo';
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFydEBnbWFpbC5jb20iLCJtZXVUb2tlbiI6InRva2VuIiwianRpIjoiYmJiODY3ZjMtYTc4MS00NWYxLTljZmUtMTcwZmQ5MmQ0Yzk5IiwiZXhwIjoxNzE0MjQ4ODkwLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6MzAwMCJ9.yYjis9360G4SUnA4pSdNwNh7g4mJ6Rx3oxyakwv7-mA';
 const headers = { 'Authorization': `Bearer ${token}` }; 
 
 export default async function GetAllUsersService() {

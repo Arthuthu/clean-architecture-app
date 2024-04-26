@@ -16,7 +16,7 @@ export default function Users(){
     <>
       <div className='users-title'>Usuários</div>
       <div className='button-div'>
-        <Link className='create-user-button' to="../user/create">Criar</Link>
+        <Link className='create-user-button' to="../user/create">Adicionar</Link>
       </div>
       {userList.map(user => (
         <div key={user.id} className='users-list'>

@@ -1,8 +1,10 @@
 /* All Users */
 
 :root {
-    --user-data-backround-color: #201d1d;
+    --dark-grey-color: hsl(0, 5%, 12%);
+    --grey-color: #343030;
     --button-color: #33970c;
+    --button-color-hover: #45ca11;
 }
 
 .users-title {
@@ -37,6 +39,13 @@
     border-radius: 10px;
 }
 
+.create-user-button:hover {
+    transition: 500ms;
+    background-color: var(--button-color-hover);
+    cursor: pointer;
+    
+}
+
 .users-list-row {
     display: flex;
     flex-direction: column;
@@ -53,22 +62,44 @@
 .user-name,
 .user-email {
     font-size: 25px; 
-    background-color: var(--user-data-backround-color);
+    background-color: var(--dark-grey-color);
     width: 100%;
     text-align: center;
     padding: 10px 0;
 }
 
-/* Create user */
-.create-user-form-button-div {
-    text-align: center;
+/* Create user page*/
+.create-user-form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 28%;
+    margin-top: 50px;
+    padding: 20px;
+    border: solid #201d1d;
 }
 
-.create-user-form-button {
-    margin: 10px;
-    padding: 20px;
-    background-color: rgb(230, 115, 44);
-    color: #FFF;
-    font-size: 23px;
+.create-user-form-label {
+    text-align: center;
+    font-size: 20px;
     font-weight: bold;
+    margin: 10px;
+}
+
+.user-form-input {
+    font-size: 20px;
+    padding: 15px;
+    margin: 5px 0 0 0;
+    color: #FFF;
+    background-color: var(--grey-color);
+    border-color: transparent;
+    }
+
+.user-form-input:focus {
+    border-color: transparent;
+}
+
+.create-user-form-button-div {
+    text-align: right;
+    margin-top: 30px;
 }
