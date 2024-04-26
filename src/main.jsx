@@ -14,10 +14,9 @@ import './site.css'
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout />}>
     <Route index element={<Home />} errorElement={<Error />} />
-    <Route path='/user/:id' element={<UserDetail />} errorElement={<Error />} />
-    <Route path='/users' element={<Users />} loader={ usersLoader } errorElement={<Error />} >
-      <Route path='/users/create' element={<CreateUser />} action={ createUserAction } errorElement={<Error />} />
-    </Route>
+    <Route path='user/:id' element={<UserDetail />} errorElement={<Error />} />
+    <Route path='users' element={<Users />} loader={ usersLoader } errorElement={<Error />} />
+    <Route path='user/create' element={<CreateUser />} action={ createUserAction } errorElement={<Error />} />
   </Route>
 ))
 

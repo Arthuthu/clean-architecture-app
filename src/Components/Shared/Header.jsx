@@ -5,8 +5,8 @@ export default function Header() {
     return(
     <>
         <header>
-            <NavLink to="/" className={({isActive}) => isActive ? "my-link" : "logo"}>Home</NavLink>
-            <NavLink to="/users" className={({isActive}) => isActive ? "my-link" : ""}>Users</NavLink>
+            <NavLink to="/" className={({isActive}) => isActive ? "my-link" : "logo"}>Início</NavLink>
+            <NavLink to="/users" className={({isActive}) => isActive ? "my-link" : ""}>Usuários</NavLink>
         </header>
     </>
     )

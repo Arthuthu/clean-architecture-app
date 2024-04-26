@@ -15,7 +15,7 @@ export default function CreateUser() {
                 <div className="create-user-form-button-div">
                     <button className="create-user-form-button">Criar</button>
                 </div>
-            </Form>
+            </Form> 
         </>
     )
 }
