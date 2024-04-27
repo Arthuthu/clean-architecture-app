@@ -1,12 +1,17 @@
-import '../../site.css';
+import './shared.css';
 import { NavLink } from 'react-router-dom';
 
 export default function Header() {
     return(
     <>
         <header>
-            <NavLink to="/" className={({isActive}) => isActive ? "my-link" : "logo"}>Início</NavLink>
-            <NavLink to="/users" className={({isActive}) => isActive ? "my-link" : ""}>Usuários</NavLink>
+            <div>
+                <NavLink to="/" className={({isActive}) => isActive ? "my-link" : "logo"}>Início</NavLink>
+            </div>
+            <div>
+                <NavLink to="/login" className={({isActive}) => isActive ? "my-link" : "not-selected"}>Login</NavLink>
+                <NavLink to="/users" className={({isActive}) => isActive ? "my-link" : "not-selected"}>Usuários</NavLink>
+            </div>
         </header>
     </>
     )

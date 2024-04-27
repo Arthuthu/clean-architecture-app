@@ -4,7 +4,7 @@ const cleanArchitectureUrl = 'https://localhost:7115';
 const loginEndpoint = 'v1/login';
 
 
-export async function CreateUserService(user){
+export default async function CreateUserService(user){
     try {
         const response = await axios.post(`${cleanArchitectureUrl}/${loginEndpoint}`, {user});
         return response.data;

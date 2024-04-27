@@ -43,6 +43,13 @@ header > a {
 
 .my-link {
     color: #f17228;
+    text-decoration: none;
+    margin: 0px 20px;
+}
+
+.not-selected {
+    text-decoration: none;
+    color: #FFF;
 }
 
 /* Footer */

@@ -1,9 +1,11 @@
 import React from 'react';
 import './login.css';
 import LoginService from '../../Services/LoginService'
+import { Form } from 'react-router-dom'
 
 export async function action() {
     const loginResponse = await LoginService(user);
+    console.log(loginResponse);
 }
 
 export default function Login() {
