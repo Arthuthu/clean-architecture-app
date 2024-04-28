@@ -93,7 +93,7 @@
     color: #FFF;
     background-color: var(--grey-color);
     border-color: transparent;
-    }
+}
 
 .user-form-input:focus {
     border-color: transparent;
@@ -102,4 +102,8 @@
 .create-user-form-button-div {
     text-align: right;
     margin-top: 30px;
+}
+
+.form-button-div {
+    margin: 10px 0 0 0;
 }

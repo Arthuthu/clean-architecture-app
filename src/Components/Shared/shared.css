@@ -50,6 +50,7 @@ header > a {
 .not-selected {
     text-decoration: none;
     color: #FFF;
+    margin: 0px 20px;
 }
 
 /* Footer */

@@ -1,0 +1,30 @@
+:root {
+    --dark-grey-color: hsl(0, 5%, 12%);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 20px 0 20px 30%;
+    text-align: center;
+    border: solid;
+    border-radius: 20px;
+    border-color: var(--dark-grey-color);
+    padding: 10px;  
+}
+
+.form-input {
+    font-size: 20px;
+    padding: 15px;
+    margin: 5px 0 0 0;
+    color: #FFF;
+    background-color: var(--grey-color);
+    border-color: transparent;
+}
+
+.form-label {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px 0;
+}

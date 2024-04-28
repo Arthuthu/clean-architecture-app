@@ -11,11 +11,11 @@ export async function action() {
 export default function Login() {
     return(
         <>
-            <Form>
-                <div>Fazer login</div>
-                <input type="email" name="email" placeholder="Email" />
-                <input type="password" name="password" placeholder="Senha" />
-                <div>
+            <Form className='form'>
+                <div className='form-label'>Login</div>
+                <input className='form-input' type="email" name="email" placeholder="Email" />
+                <input className='form-input' type="password" name="password" placeholder="Senha" />
+                <div className='form-button-div'>
                     <button className="create-user-button" onClick={ action }>Entrar</button>
                 </div>
             </Form> 
