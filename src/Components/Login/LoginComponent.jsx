@@ -1,13 +1,22 @@
 import React from 'react';
 import './login.css';
 import LoginService from '../../Services/LoginService'
-import { Form } from 'react-router-dom'
+import { Form, redirect } from 'react-router-dom'
 
 export async function action({ request }) {
-    const formData = await request.formData();
-    const user = {email: formData.get("email"), password: formData.get("password")}
-    const loginResponse = await LoginService(user);
-    console.log(loginResponse);
+    try {
+        const formData = await request.formData();
+        const user = {email: formData.get("email"), password: formData.get("password")}
+    
+        const loginResponse = await LoginService(user);
+        localStorage.setItem('token', loginResponse.data.token);
+        localStorage.setItem('expiration', loginResponse.data.expiration);
+        return redirect('/')
+    }
+    catch {
+        console.log('Error');
+    }
+
     return null;
 }
 
