@@ -27,12 +27,6 @@ export async function GetUserByIdService(id){
 }
 
 export async function CreateUserService(user){
-    // const hardCodedUser = {
-    //     name: 'HardCoded',
-    //     email: 'hardcoded@gmail.com',
-    //     password: 'hardCodedPassword123'
-    // }
-
     try {
         const response = await axios.post(`${cleanArchitectureUrl}/${usersEndpoint}/create`, {user}, { headers });
         return response.data;

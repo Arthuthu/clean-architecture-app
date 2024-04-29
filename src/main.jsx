@@ -5,20 +5,22 @@ import './site.css'
 import UserDetail from './Components/Users/UserDetail'
 import Layout from './Components/Shared/Layout'
 import Users, { loader as usersLoader } from './Components/Users/Users'
-import Home from './Components/Home'
+import Home, { loader as homeLoader } from './Components/Home'
 import Error from './Components/Shared/Error'
 import CreateUser from './Components/Users/CreateUser'
 import { action as createUserAction } from './Components/Users/CreateUser'
-import Login from './Components/Login/LoginComponent'
-import { action as loginAction, loader as loginLoader } from './Components/Login/LoginComponent'
+import Login from './Components/Login/Login'
+import { action as loginAction, loader as loginLoader } from './Components/Login/Login'
+import Logout, { loader as logoutLoader } from './Components/Logout'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout />}>
-    <Route index element={<Home />} errorElement={<Error />} />
+    <Route index element={<Home />} loader={ homeLoader } errorElement={<Error />} />
     <Route path='user/:id' element={<UserDetail />} errorElement={<Error />} />
     <Route path='users' element={<Users />} loader={ usersLoader } errorElement={<Error />} />
     <Route path='user/create' element={<CreateUser />} action={ createUserAction } errorElement={<Error />} />
-    <Route path='login' element={<Login />} loader= { loginLoader } action={ loginAction } errorElement={<Error />} />
+    <Route path='login' element={<Login />} loader={ loginLoader } action={ loginAction } errorElement={<Error />} />
+    <Route path='logout' element={<Logout />} loader={ logoutLoader } errorElement={<Error />} />
   </Route>
 ))
 

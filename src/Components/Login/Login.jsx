@@ -15,10 +15,25 @@ export async function action({ request }) {
 
     localStorage.setItem('token', loginResponse.data.token);
     localStorage.setItem('expiration', loginResponse.data.expiration);
-    return redirect('/')
+    localStorage.setItem('reload', 'yes');
+    return redirect('/');
 }
 
 export function loader({ request }) {
+    const reload = localStorage.getItem('reload');
+
+    if(reload != null)
+    {
+      localStorage.removeItem('reload');
+      window.location.reload();
+    }
+
+    const token = localStorage.getItem('token');
+    if(token != null)
+    {
+        return redirect('/');
+    }
+
     return new URL(request.url).searchParams.get("message")
 }
 
