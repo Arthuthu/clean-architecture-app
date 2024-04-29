@@ -5,17 +5,12 @@ const loginEndpoint = 'v1/login';
 
 
 export default async function LoginService(user){
-    try {
-        const response = await axios.post(`${cleanArchitectureUrl}/${loginEndpoint}`,
-        {email: user.email, password: user.password})
-        .catch(function (error) {
-            console.log(error.toJSON());
-        });
+    const response = await axios.post(`${cleanArchitectureUrl}/${loginEndpoint}`,
+    {email: user.email, password: user.password})
+    .catch(function (error) {
+        const errorInfo = {status: error.response.status, message: error.response.data}
+        return errorInfo;
+      });
 
-        return response;
-    }
-    catch {
-        console.error('Ocorreu um erro ao realizer o Login', error);
-        throw error;
-    }
+    return response;
 }

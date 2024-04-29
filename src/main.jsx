@@ -10,7 +10,7 @@ import Error from './Components/Shared/Error'
 import CreateUser from './Components/Users/CreateUser'
 import { action as createUserAction } from './Components/Users/CreateUser'
 import Login from './Components/Login/LoginComponent'
-import { action as loginAction } from './Components/Login/LoginComponent'
+import { action as loginAction, loader as loginLoader } from './Components/Login/LoginComponent'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout />}>
@@ -18,7 +18,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='user/:id' element={<UserDetail />} errorElement={<Error />} />
     <Route path='users' element={<Users />} loader={ usersLoader } errorElement={<Error />} />
     <Route path='user/create' element={<CreateUser />} action={ createUserAction } errorElement={<Error />} />
-    <Route path='login' element={<Login />} action={ loginAction } errorElement={<Error />} />
+    <Route path='login' element={<Login />} loader= { loginLoader } action={ loginAction } errorElement={<Error />} />
   </Route>
 ))
 

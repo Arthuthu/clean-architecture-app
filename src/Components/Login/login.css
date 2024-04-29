@@ -28,3 +28,9 @@
     font-weight: bold;
     margin: 20px 0;
 }
+
+.login-error-message {
+    font-size: 30px;
+    text-align: center;
+    color: #e13030;
+}

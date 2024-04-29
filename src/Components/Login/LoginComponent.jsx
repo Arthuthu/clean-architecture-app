@@ -1,26 +1,30 @@
 import React from 'react';
 import './login.css';
 import LoginService from '../../Services/LoginService'
-import { Form, redirect } from 'react-router-dom'
+import { Form, redirect, useLoaderData } from 'react-router-dom'
 
 export async function action({ request }) {
-    try {
-        const formData = await request.formData();
-        const user = {email: formData.get("email"), password: formData.get("password")}
-    
-        const loginResponse = await LoginService(user);
-        localStorage.setItem('token', loginResponse.data.token);
-        localStorage.setItem('expiration', loginResponse.data.expiration);
-        return redirect('/')
-    }
-    catch {
-        console.log('Error');
+    const formData = await request.formData();
+    const user = {email: formData.get("email"), password: formData.get("password")}
+
+    const loginResponse = await LoginService(user);
+    if (loginResponse.status === 404)
+    {
+        return redirect(`/login?message=${loginResponse.message}`);
     }
 
-    return null;
+    localStorage.setItem('token', loginResponse.data.token);
+    localStorage.setItem('expiration', loginResponse.data.expiration);
+    return redirect('/')
+}
+
+export function loader({ request }) {
+    return new URL(request.url).searchParams.get("message")
 }
 
 export default function Login() {
+    const message = useLoaderData()
+
     return(
         <>
             <Form className='form' method='post'>
@@ -31,6 +35,7 @@ export default function Login() {
                     <button className="create-user-button">Entrar</button>
                 </div>
             </Form> 
+            {message && <h3 className="login-error-message">{message}</h3>}
         </>
     )
 }
