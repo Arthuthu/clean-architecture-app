@@ -23,11 +23,10 @@ export async function action({ request }) {
 
 export function loader({ request }) {
     const reload = localStorage.getItem('reload');
-
     if(reload != null)
     {
-      localStorage.removeItem('reload');
-      window.location.reload();
+        localStorage.removeItem('reload');
+        window.location.reload();
     }
 
     const token = localStorage.getItem('token');

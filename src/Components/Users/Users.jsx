@@ -1,11 +1,18 @@
 import { Suspense } from 'react';
 import GetAllUsersService from '../../Services/UserService';
-import { Await, useLoaderData, Link } from 'react-router-dom';
+import { Await, useLoaderData, Link, redirect } from 'react-router-dom';
 import './users.css';
+import Authenticate from '../../Services/AuthenticationService';
 
 export async function loader(){
-  //Verificar se usuario esta logado
+  const authentication = await Authenticate();
+  if(authentication != null)
+  {
+    return redirect(authentication);
+  }
+
   const users = await GetAllUsersService();
+
   return users;
 }
 
@@ -22,7 +29,7 @@ export default function Users(){
         <div key={user.id} className='users-list'>
           <div className='users-list-row'>
             <div className='users-list-label'>Nome</div>
-            <div className='user-name'>{user.name}</div>
+            <div className='user-name'>{user.username}</div>
           </div>
           <div className='users-list-row'>
             <div className='users-list-label'>Email</div>

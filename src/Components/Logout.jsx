@@ -1,16 +1,27 @@
-import { redirect } from 'react-router-dom'
+import { redirect, Navigate, useLoaderData } from 'react-router-dom'
 
 export default function Logout(){
-    return(
-        <>
-        </>
-    )
+    return (<></>);
 }
 
 export function loader() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('expiration');
-    localStorage.setItem('reload', 'yes');
+    const token = localStorage.getItem('token');
+    if(token != null)
+    {
+        localStorage.removeItem('token');
+    }
 
-    return redirect("/login");
+    const expiration = localStorage.getItem('expiration')
+    if(expiration != null)
+    {
+        localStorage.removeItem('expiration');
+    }
+
+    const username = localStorage.getItem('username')
+    if(username != null)
+    {
+        localStorage.removeItem('username');
+    }
+
+    return redirect('/login');
 }
