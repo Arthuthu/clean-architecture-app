@@ -1,7 +1,7 @@
 import React from 'react';
 import './login.css';
 import LoginService from '../../Services/LoginService'
-import { Form, redirect, useLoaderData } from 'react-router-dom'
+import { Form, redirect, useActionData, useLoaderData } from 'react-router-dom'
 
 export async function action({ request }) {
     const formData = await request.formData();
@@ -10,7 +10,7 @@ export async function action({ request }) {
     const loginResponse = await LoginService(user);
     if(loginResponse.status === 404)
     {
-        return redirect(`/login?message=${loginResponse.message}`);
+        return `${loginResponse.message}`;
     }
 
     localStorage.setItem('token', loginResponse.data.token);
@@ -35,11 +35,11 @@ export function loader({ request }) {
         return redirect('/');
     }
 
-    return new URL(request.url).searchParams.get("message")
+    return null;
 }
 
 export default function Login() {
-    const message = useLoaderData()
+    const error = useActionData();
 
     return(
         <>
@@ -51,7 +51,7 @@ export default function Login() {
                     <button className="create-user-button">Entrar</button>
                 </div>
             </Form> 
-            {message && <h3 className="login-error-message">{message}</h3>}
+            {error && <h3 className="login-error-message">{error}</h3>}
         </>
     )
 }
