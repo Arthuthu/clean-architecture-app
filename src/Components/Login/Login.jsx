@@ -18,7 +18,7 @@ export async function action({ request }) {
     localStorage.setItem('username', loginResponse.data.username);
     localStorage.setItem('reload', 'yes');
 
-    const pathname = new URL(request.url).searchParams.get("redirect")
+    const pathname = new URL(request.url).searchParams.get("redirect") || "/";
     return redirect(pathname);
 }
 
