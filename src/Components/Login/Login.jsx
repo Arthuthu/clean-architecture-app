@@ -5,17 +5,19 @@ import { Form, redirect, useLoaderData } from 'react-router-dom'
 
 export async function action({ request }) {
     const formData = await request.formData();
-    const user = {email: formData.get("email"), password: formData.get("password")}
-
+    const user = {username: formData.get("username"), password: formData.get("password")}
+    
     const loginResponse = await LoginService(user);
-    if (loginResponse.status === 404)
+    if(loginResponse.status === 404)
     {
         return redirect(`/login?message=${loginResponse.message}`);
     }
 
     localStorage.setItem('token', loginResponse.data.token);
     localStorage.setItem('expiration', loginResponse.data.expiration);
+    localStorage.setItem('username', loginResponse.data.username);
     localStorage.setItem('reload', 'yes');
+
     return redirect('/');
 }
 
@@ -44,7 +46,7 @@ export default function Login() {
         <>
             <Form className='form' method='post'>
                 <div className='form-label'>Login</div>
-                <input className='form-input' type="email" name="email" placeholder="Email" />
+                <input className='form-input' type='username' name="username" placeholder="Usuario" />
                 <input className='form-input' type="password" name="password" placeholder="Senha" />
                 <div className='form-button-div'>
                     <button className="create-user-button">Entrar</button>

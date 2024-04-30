@@ -1,11 +1,14 @@
-import { redirect } from 'react-router-dom';
+import { redirect, useLoaderData } from 'react-router-dom';
 import '../site.css';
 
 export default function Home() {
+  const username = useLoaderData();
+
   return(
     <>
       <div className="homepage-div">
-        <h2>This is the home page</h2>
+        {username && 
+        <h2>{`Ola ${username} seja bem vindo.`}</h2>}
       </div>
     </>
   )
@@ -20,5 +23,6 @@ export function loader() {
     window.location.reload();
   }
 
-  return null;
+  const username = localStorage.getItem('username');
+  return username;
 }
