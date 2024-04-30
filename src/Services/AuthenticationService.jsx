@@ -1,8 +1,9 @@
-export default async function Authenticate(){
+export default async function Authenticate(request){
+    const pathname = new URL(request.url).pathname
     const token = localStorage.getItem('token');
     if(token == null)
     {
-        return '/login';
+        return `/login?redirect=${pathname}`;
     }
 
     const expiration = localStorage.getItem('expiration');

@@ -4,11 +4,11 @@ import { Await, useLoaderData, Link, redirect } from 'react-router-dom';
 import './users.css';
 import Authenticate from '../../Services/AuthenticationService';
 
-export async function loader(){
-  const authentication = await Authenticate();
-  if(authentication != null)
+export async function loader({ request }){
+  const authenticationUrl = await Authenticate(request);
+  if(authenticationUrl != null)
   {
-    return redirect(authentication);
+    return redirect(authenticationUrl);
   }
 
   const users = await GetAllUsersService();
