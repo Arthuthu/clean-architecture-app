@@ -5,6 +5,7 @@ import './users.css';
 import Authenticate from '../../Services/AuthenticationService';
 
 export async function loader({ request }){
+  //Add await
   const authenticationUrl = await Authenticate(request);
   if(authenticationUrl != null)
   {

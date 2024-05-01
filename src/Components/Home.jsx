@@ -16,11 +16,11 @@ export default function Home() {
 
 export function loader() {
   const reload = localStorage.getItem('reload');
-
+  
   if(reload != null)
   {
-    localStorage.removeItem('reload');
-    window.location.reload();
+      localStorage.removeItem('reload');
+      window.location.reload();
   }
 
   const username = localStorage.getItem('username');
