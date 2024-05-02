@@ -83,3 +83,10 @@ footer {
     transition: 500ms;
     color: var(--blue-hover-color);
 }
+
+/*Loading */
+.loading-div {
+    text-align: center;
+    font-size: 30px;
+    margin: 20px 0;
+}
