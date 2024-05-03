@@ -3,6 +3,7 @@ import GetAllUsersService from '../../Services/UserService';
 import { Await, useLoaderData, Link, redirect, defer } from 'react-router-dom';
 import './users.css';
 import Authenticate from '../../Services/AuthenticationService';
+import Loading from '../Shared/Loading';
 
 export async function loader({ request }){
   const authenticationUrl = await Authenticate(request);
@@ -42,9 +43,11 @@ export default function Users(){
 
   return(
     <>
-      <Await resolve={dataPromise.users}>
-        { renderUsersElements }
-      </Await>
+      <Suspense fallback={<Loading />}>
+        <Await resolve={dataPromise.users}>
+          { renderUsersElements }
+        </Await>
+      </Suspense>
     </>
   )
 }
