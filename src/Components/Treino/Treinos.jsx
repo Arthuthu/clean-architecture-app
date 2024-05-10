@@ -10,9 +10,9 @@ export default function Treinos(){
           <div className='button-div'>
             <Link className='create-user-button' to="../user/create">Adicionar</Link>
           </div>
-          {treinos.map(user => (
-            <div key={user.id} className='users-list'>
-              <div className='users-list-row'>
+          {treinos.map(treino => (
+            <div key={treino.id} className='users-list'>
+              <div className='users-list-row'>  
                 <div className='users-list-label'>Nome</div>
                 <div className='user-name'>{user.username}</div>
               </div>
