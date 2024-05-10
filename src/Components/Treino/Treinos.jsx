@@ -1,4 +1,6 @@
 import GetAllTreinosService from '../../Services/TreinoService'
+import './treino.css';
+
 
 export default function Treinos(){
     const dataPromise = useLoaderData();
@@ -6,15 +8,15 @@ export default function Treinos(){
     function renderTreinosElements(treinos) {
       return(
         <>
-          <div className='users-title'>Seus treinos</div>
+          <div className='treinos-title'>Seus treinos</div>
           <div className='button-div'>
-            <Link className='create-user-button' to="../user/create">Adicionar</Link>
+            <Link className='create-treino-button' to="../treino/create">Adicionar</Link>
           </div>
           {treinos.map(treino => (
-            <div key={treino.id} className='users-list'>
-              <div className='users-list-row'>  
-                <div className='users-list-label'>Nome</div>
-                <div className='user-name'>{user.username}</div>
+            <div key={treino.id} className='treinos-list'>
+              <div className='treinos-list-row'>  
+                <div className='treinos-list-label'>Nome</div>
+                <div className='treino-name'>{user.username}</div>
               </div>
             </div>
             ))}
