@@ -11,10 +11,8 @@ export default function CreateUser() {
         <>
             <Form className="create-treino-form">
                 <div className="create-treino-form-label">Adicionando treino</div>
-                <input className='user-form-input' name="name" placeholder="Nome"/>
-                <input className='user-form-input' type="email" name="email" placeholder="Email" />
-                <input className='user-form-input' type="password" name="password" placeholder="Senha" />
-                <div className="create-user-form-button-div">
+                <input className='treino-form-input' name="name" placeholder="Nome"/>
+                <div className="create-treino-form-button-div">
                     <button className="create-user-button" onClick={ action }>Salvar</button>
                 </div>
             </Form> 
