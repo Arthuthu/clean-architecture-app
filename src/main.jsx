@@ -9,6 +9,8 @@ import Home, { loader as homeLoader } from './Components/Home'
 import Error from './Components/Shared/Error'
 import CreateUser from './Components/Users/CreateUser'
 import { action as createUserAction } from './Components/Users/CreateUser'
+import CreateTreino from './Components/Treino/CreateTreino'
+import { action as createTreinoAction } from './Components/Treino/CreateTreino'
 import Login from './Components/Login/Login'
 import { action as loginAction, loader as loginLoader } from './Components/Login/Login'
 import Logout, { loader as logoutLoader } from './Components/Logout'
@@ -21,6 +23,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='users' element={<Users />} loader={ usersLoader } errorElement={<Error />} />
     <Route path='user/create' element={<CreateUser />} action={ createUserAction } errorElement={<Error />} />
     <Route path='treinos' element={<Treinos />} loader={ treinosLoader } errorElement={<Error />} />
+    <Route path='treino/create' element={<CreateTreino />} action={ createTreinoAction } />
     <Route path='login' element={<Login />} loader={ loginLoader } action={ loginAction } errorElement={<Error />} />
     <Route path='logout' element={<Logout />} loader={ logoutLoader } errorElement={<Error />} />
   </Route>

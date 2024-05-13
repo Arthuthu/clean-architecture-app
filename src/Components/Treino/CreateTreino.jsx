@@ -2,17 +2,18 @@ import { CreateTreinoService } from "../../Services/TreinoService"
 import { Form } from 'react-router-dom'
 
 export async function action({ request }) {
-    const formData = await request.formData();
-
-    const formName = formData.get("name");
-
-    const formTreino = { name: formName }
-
-    const response = await CreateTreinoService(formTreino)
-    console.log(response);
+    try {
+        const formData = await request.formData();
+        const formName = formData.get("name");
+        const formTreino = { name: formName };
+        const response = await CreateTreinoService(formTreino);
+        console.log(response);
+    } catch (error) {
+        console.error("Error in action:", error);
+    }
 }
 
-export default function CreateUser() {
+export default function CreateTreino() {
     return(
         <>
             <Form className="create-treino-form">
