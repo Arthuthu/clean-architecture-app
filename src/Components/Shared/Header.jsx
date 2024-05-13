@@ -21,6 +21,7 @@ export default function Header() {
                     <NavLink to="/logout" className={({isActive}) => isActive ? "my-link" : "not-selected"}>Sair</NavLink>
                 }
                 <NavLink to="/users" className={({isActive}) => isActive ? "my-link" : "not-selected"}>Usuários</NavLink>
+                <NavLink to="/treinos" className={({isActive}) => isActive ? "my-link" : "not-selected"}>Treinos</NavLink>
             </div>
         </header>
     </>

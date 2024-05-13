@@ -1,13 +1,14 @@
 import axios from 'axios';
 
-const cleanArchitectureUrl = 'https://localhost:7115';
+const webSiteUrl = 'https://localhost:7290';
 const treinoEndpoint = 'v1/treino';
 const token = localStorage.getItem('token');
 const headers = { 'Authorization': `Bearer ${token}` }; 
 
 export default async function GetAllTreinosService() {
     try {
-        const response = await axios.get(`${cleanArchitectureUrl}/${treinoEndpoint}/get`, { headers });
+        const response = await axios.get(`${webSiteUrl}/${treinoEndpoint}/get`, { headers });
+        console.log(response);
         return response.data;
     } catch (error) {
         console.error('Error getting all treinos:', error);
@@ -17,7 +18,7 @@ export default async function GetAllTreinosService() {
 
 export async function GetTreinoByIdService(id){
     try {
-        const response = await axios.get(`${cleanArchitectureUrl}/${treinoEndpoint}/get/${id}`, { headers });
+        const response = await axios.get(`${webSiteUrl}/${treinoEndpoint}/get/${id}`, { headers });
         return response.data;
     } 
     catch {
@@ -28,7 +29,7 @@ export async function GetTreinoByIdService(id){
 
 export async function CreateTreinoService(treino){
     try {
-        const response = await axios.post(`${cleanArchitectureUrl}/${treinoEndpoint}/create`, {treino}, { headers });
+        const response = await axios.post(`${webSiteUrl}/${treinoEndpoint}/create`, {treino}, { headers });
         return response.data;
     }
     catch {
@@ -39,7 +40,7 @@ export async function CreateTreinoService(treino){
 
 export async function DeleteTreinoService(id){
     try {
-        const response = await axios.delete(`${cleanArchitectureUrl}/${treinoEndpoint}/delete/${id}`, { headers })
+        const response = await axios.delete(`${webSiteUrl}/${treinoEndpoint}/delete/${id}`, { headers })
         return response.data;
     } 
     catch {
@@ -50,7 +51,7 @@ export async function DeleteTreinoService(id){
 
 export async function UpdateTreinoService(treinoId, treino) {
     try {
-        const response = await axios.put(`${cleanArchitectureUrl}/${usersEndpoint}/update/${treinoId}, ${ treino }. ${ headers }`);
+        const response = await axios.put(`${webSiteUrl}/${treinoEndpoint}/update/${treinoId}, ${ treino }. ${ headers }`);
         return response.data;
     }
     catch {

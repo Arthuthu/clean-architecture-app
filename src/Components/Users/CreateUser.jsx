@@ -1,9 +1,17 @@
 import { CreateUserService } from "../../Services/UserService"
 import { Form } from 'react-router-dom'
 
-export async function action() {
-    //Test this form
-    console.log('action log');
+export async function action({ request }) {
+    const formData = await request.formData();
+
+    const formName = formData.get("name");
+    const formEmail = formData.get("email");
+    const formPassword = formData.get("password");
+
+    const formUser = { name: formName, email: formEmail, password: formPassword }
+
+    const response = await CreateUserService(formUser)
+    console.log(response);
 }
 
 export default function CreateUser() {
