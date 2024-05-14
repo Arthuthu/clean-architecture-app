@@ -12,6 +12,8 @@ export default function Header() {
                 <NavLink to="/" className={({isActive}) => isActive ? "my-link" : "logo"}>Início</NavLink>
             </div>
             <div>
+                <NavLink to="/users" className={({isActive}) => isActive ? "my-link" : "not-selected"}>Usuários</NavLink>
+                <NavLink to="/treinos" className={({isActive}) => isActive ? "my-link" : "not-selected"}>Treinos</NavLink>
                 {
                     (token == null) &&  (expiration == null) &&
                     <NavLink to="/login" className={({isActive}) => isActive ? "my-link" : "not-selected"}>Entrar</NavLink>
@@ -20,9 +22,7 @@ export default function Header() {
                     (token != null) &&  (expiration != null) &&
                     <NavLink to="/logout" className={({isActive}) => isActive ? "my-link" : "not-selected"}>Sair</NavLink>
                 }
-                <NavLink to="/users" className={({isActive}) => isActive ? "my-link" : "not-selected"}>Usuários</NavLink>
-                <NavLink to="/treinos" className={({isActive}) => isActive ? "my-link" : "not-selected"}>Treinos</NavLink>
-            </div>
+               </div>
         </header>
     </>
     )
