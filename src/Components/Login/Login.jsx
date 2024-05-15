@@ -15,6 +15,7 @@ export async function action({ request }) {
 
     localStorage.setItem('token', loginResponse.data.token);
     localStorage.setItem('expiration', loginResponse.data.expiration);
+    localStorage.setItem('id', loginResponse.data.id);
     localStorage.setItem('reload', 'yes');
 
     const pathname = new URL(request.url).searchParams.get("redirect") || "/";
